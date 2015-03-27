@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Адресная книга</title>
+        <link rel="stylesheet" href="css/screen.css" />
+    </head>
+    <body>
+        <div id="contacts">
+            <header>
+                <div id="filter1"><button>Сортировать по имени</button></div>
+                <div id="filter2"><button>Сортировать по дате рождения</button></div>
+                <div id="filter3"><button>Сортировать по телефону</button></p></div>
+                <br>
+                <div id="delcheck"><button>Удалить помеченные</button></p></div>
+
+
+                <a id="showForm" href="#">Добавить новый контакт</a>
+                <form id="addContact" action="#">
+
+                    <label for="photo">Фото:</label><input id="photo" type="file" />
+                    <label for="name">Имя:</label><input id="name" />
+                    <label for="lastname">Фамилия:</label><input id="lastname" />
+                    <label for="tel">Телефон</label><input id="tel" />
+                    <label for="email">Email:</label><input id="email" />
+                    <label for="birthdate">Дата рождения:</label><input id="birthdate" />
+                    <label for="description">Примечание:</label><input id="description" />
+                    <button id="add">Добавить</button>
+                </form>
+            </header>
+        </div>
+        <script id="contactTemplate" type="text/template">
+            <img src="<%= photo %>" width="150" height="130"  alt="<%= name %>" />
+            <h1><%= name %></h1>
+            <div><%= lastname %></div>
+            Избранное<INPUT type="checkbox" name=favorites id=favorites>
+            <br>
+            На удаление<INPUT type="checkbox" name=deletecheck id=deletecheck>
+            <br>
+            <dl>
+                <dt>Телефон:</dt><dd><span style="padding:0px 20px;"><%= tel %></span></dd>
+            </dl>
+            <br><br>
+            <button class="delete">Удалить</button>
+            <button class="edit">Детали / Редактировать</button>
+        </script>
+        <script id="contactEditTemplate" type="text/template">
+            <form action="#">
+                <input type="photo" value="<%= photo %>" />
+                <input class="name" value="<%= name %>" />
+                <input id="lastname" value="<%= lastname %>" />
+                <input class="birthdate" value="<%= birthdate %>" />
+                <input class="tel" value="<%= tel %>" />
+                <input class="email" value="<%= email %>" />
+                <input class="description" value="<%= description %>" />
+                <button class="save">Сохранить</button>
+                <button class="cancel">Отмена</button>
+            </form>
+        </script>
+
+        <script src="js/jquery-1.7.1.min.js"></script>
+        <script src="js/Underscore-min.js"></script>
+        <script src="js/Backbone-min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
